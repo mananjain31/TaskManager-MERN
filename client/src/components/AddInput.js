@@ -26,7 +26,7 @@ export default function AddInput() {
                 w-200 p-2 mx-3 bg-slate-500 text-white
                 rounded shadow-sm shadow-slate-900 active:shadow-inner 
                 '
-                onClick={()=>handleAdd(val) && setVal("")}
+                onClick={()=>val.length && handleAdd(val) && setVal("")}
             >Add</button>
         </div>
     )

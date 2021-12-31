@@ -5,7 +5,8 @@ import {AppContext} from '../App'
 
 export default function Tasks() {
     const {tasks, handleDelete, openModal} = React.useContext(AppContext);
-
+    
+    console.log(tasks)
     return (
         <div 
             className='
@@ -27,7 +28,7 @@ export default function Tasks() {
                     >
                         <div
                             className={`
-                                flex-1 mx-1 text-lg ${task.completed ? "line-through" : ""}
+                                flex-1 mx-1 text-lg ${task ? task.completed ? "line-through" : "" : ""}
                             `}
                         >{task.name}</div>
                         <div

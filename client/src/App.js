@@ -13,7 +13,7 @@ function App() {
     let newState = [];
     switch(action.type)
     {
-      case "add": return [...state, action.task];
+      case "add": return action.task ? [...state, action.task] : state;
       case "initialize": return action.tasks;
       case "update": 
         for(const task of state)
@@ -66,6 +66,7 @@ function App() {
         body : JSON.stringify({name})
       });
       const data = await res.json();
+      if(!data.task) throw Error(data);
       dispatch({type:"add", task : data.task});
     }catch(err){
       console.error(err)
@@ -92,6 +93,7 @@ function App() {
         body : JSON.stringify(task)
       });
       const data = await res.json();
+      if(!data.task) throw Error(data);
       dispatch({type:"update", task : data.task });
     }catch(err){
       console.error(err)

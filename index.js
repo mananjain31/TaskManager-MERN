@@ -1,9 +1,12 @@
 const express = require("express");
-const { connectDB } = require("./db/connect");
-const tasks = require("./routes/tasks");
 const app = express();
 require('dotenv').config();
+
 const port = process.env.PORT || 3001;
+const { connectDB } = require("./db/connect");
+const tasks = require("./routes/tasks");
+const notFound = require("./middlewares/notFound");
+const errorHandler = require("./middlewares/erorHandler");
 
 app.use(express.static('./client/build'));
 app.use(express.json());
@@ -18,6 +21,8 @@ delete  '/api/v1/tasks/:id'     - delete a task
 
 // router
 app.use('/api/v1/tasks',tasks);
+app.use(notFound);
+app.use(errorHandler);
 
 const run = async() => {
     try{

@@ -9,7 +9,7 @@ export default function UpdateModal() {
     React.useEffect(()=>{
         setTask(modalProps.task);
     }, [modalProps]);
-
+    console.log(task)
     return (
         <div
             className={`

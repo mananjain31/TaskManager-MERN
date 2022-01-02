@@ -1,3 +1,4 @@
+const path = require("path");
 const express = require("express");
 const app = express();
 
@@ -11,7 +12,7 @@ const tasks = require("./routes/tasks");
 const notFound = require("./middlewares/notFound");
 const errorHandler = require("./middlewares/erorHandler");
 
-app.use(express.static('./client/build'));
+app.use(express.static(path.join(__dirname, 'client', 'build')));
 app.use(express.json());
 
 /*  

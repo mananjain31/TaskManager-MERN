@@ -2,9 +2,6 @@
   "name": "task-manager",
   "version": "1.0.0",
   "main": "index.js",
-  "engines" : {
-    "node" : "16.x"
-  },
   "license": "MIT",
   "scripts" : {
     "start" : "node index.js",

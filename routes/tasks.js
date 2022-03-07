@@ -1,5 +1,4 @@
-const express = require("express");
-const router = express.Router();
+const router = require("express").Router();
 const {getAll,getOne,createOne,deleteOne,updateOne} = require('../controllers/tasks');
 
 router.route('/').get(getAll).post(createOne);
